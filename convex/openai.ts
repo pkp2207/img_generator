@@ -134,25 +134,25 @@ async function checkPodcastCount(ctx: ActionCtx) {
   switch (user.plan?.toLowerCase()) {
     case "free":
       // check if user has generated more than 5 podcasts
-      if (user.totalPodcasts >= 5) {
+      if (user.totalPodcasts !== undefined && user.totalPodcasts >= 5) {
         throw new Error("Free users can only generate 5 podcasts per month");
       }
       return;
     case "pro":
       // check if user has generated more than 30 podcasts
-      if (user.totalPodcasts >= 30) {
+      if (user.totalPodcasts !== undefined && user.totalPodcasts >= 30) {
         throw new Error("Pro users can only generate 30 podcasts per month");
       }
       return;
     case "enterprise":
       // check if user has generated more than 100 podcasts
-      if (user.totalPodcasts >= 100) {
+      if (user.totalPodcasts !== undefined && user.totalPodcasts >= 100) {
         throw new Error("Enterprise users can only generate 100 podcasts per month");
       }
       return;
     default:
       // check if user has generated more than 5 podcasts
-      if (user.totalPodcasts >= 5) {
+      if (user.totalPodcasts !== undefined && user.totalPodcasts >= 5) {
         throw new Error("Free users can only generate 5 podcasts per month");
       }
       return;
