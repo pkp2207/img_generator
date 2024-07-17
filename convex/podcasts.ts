@@ -85,10 +85,11 @@ export const createPodcast = mutation({
       authorImageUrl: user[0].imageUrl,
       audioDuration: args.audioDuration,
     });
+    const updatedTotalPodcasts = (user[0]?.totalPodcasts ?? 0) + 1;
 
     // update the totalPodcasts of the user
     await ctx.db.patch(user[0]._id, {
-      totalPodcasts: user[0]?.totalPodcasts + 1,
+      totalPodcasts: updatedTotalPodcasts,
     });
 
     return newPodcast;
