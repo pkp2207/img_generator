@@ -88,7 +88,7 @@ export const createPodcast = mutation({
 
     // update the totalPodcasts of the user
     await ctx.db.patch(user[0]._id, {
-      totalPodcasts: user[0].totalPodcasts + 1,
+      totalPodcasts: user[0]?.totalPodcasts + 1,
     });
 
     return newPodcast;
@@ -104,22 +104,22 @@ export const handlePodcastSubscription = async (ctx: MutationCtx,
 
   switch (plan.toUpperCase()) {
     case "FREE":
-      if (user.totalPodcasts >= 5) {
+      if (user.totalPodcasts !== undefined && user.totalPodcasts >= 5) {
         throw new ConvexError("You have exceeded the limit of podcasts for this month");
       }
       break;
     case "PRO":
-      if (user.totalPodcasts >= 30) {
+      if (user.totalPodcasts !== undefined && user.totalPodcasts >= 30) {
         throw new ConvexError("You have exceeded the limit of podcasts for this month");
       }
       break;
     case "ENTERPRISE":
-      if (user.totalPodcasts >= 100) {
+      if (user.totalPodcasts !== undefined && user.totalPodcasts >= 100) {
         throw new ConvexError("You have exceeded the limit of podcasts for this month");
       }
       break;
     default:
-      if (user.totalPodcasts >= 5) {
+      if (user.totalPodcasts !== undefined && user.totalPodcasts >= 5) {
         throw new ConvexError("You have exceeded the limit of podcasts for this month");
       }
       break;
