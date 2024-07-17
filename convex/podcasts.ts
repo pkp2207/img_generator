@@ -13,7 +13,7 @@ type User = {
   subscriptionId?: string;
   endsOn?: number;
   plan?: string;
-  totalPodcasts?: number | null; // Ensure totalPodcasts can be optional and nullable
+  totalPodcasts?: number; // Ensure totalPodcasts can be optional and nullable
 };
 
 const userSchema = v.object({
