@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react'
 import Header from './Header';
-import Carousel from './Carousel';
+import SuggestedPodcastsCarousel from './SuggestedPodcastsCarousel'; // New import
 import { useQuery } from 'convex/react';
 import { api } from '@/convex/_generated/api';
 import { useRouter } from 'next/navigation';
@@ -13,12 +13,30 @@ import LoaderSpinner from './LoaderSpinner';
 import { useAudio } from '@/providers/AudioProvider';
 import { cn } from '@/lib/utils';
 
+type Id<T extends string> = any;
+
 const RightSidebar = () => {
   const { user } = useUser();
   const topPodcasters = useQuery(api.users.getTopUserByPodcastCount);
   const router = useRouter();
 
   const { audio } = useAudio();
+
+  // Example podcasts
+  const examplePodcasts = [
+    {
+      _id: { __tableName: "podcasts", id: "1" } as unknown as Id<"podcasts">,
+      podcastTitle: 'The AI Revolution',
+      podcastDescription: 'Exploring the latest in AI technology and its impacts.',
+      imageUrl: '/images/1.jpeg',
+    },
+    {
+      _id: { __tableName: "podcasts", id: "2" } as unknown as Id<"podcasts">,
+      podcastTitle: 'Tech Talk',
+      podcastDescription: 'Discussing the latest trends in technology and innovation.',
+      imageUrl: '/images/2.jpeg',
+    },
+  ];
 
   return (
     <section className={cn('right_sidebar h-[calc(100vh-5px)]', {
@@ -40,7 +58,7 @@ const RightSidebar = () => {
       </SignedIn>
       <section>
         <Header headerTitle="Suggested Podcasts" />
-        <Carousel fansLikeDetail={topPodcasters!}/>
+        <SuggestedPodcastsCarousel podcasts={examplePodcasts} />
       </section>
       <section className="flex flex-col gap-8 pt-12">
         <Header headerTitle="Top Creators" />
@@ -65,7 +83,7 @@ const RightSidebar = () => {
         </div>
       </section>
     </section>
-  )
-}
+  );
+};
 
-export default RightSidebar
+export default RightSidebar;
