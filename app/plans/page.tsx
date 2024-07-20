@@ -219,7 +219,7 @@ export default function Payments() {
             <div className="flex flex-col flex-1 bg-[--primary-color] rounded-lg p-[24px] w-full">
               <div className="flex h-16 items-center justify-between md:hidden">
                 <Image
-                  src="/icons/miclogo.svg"
+                  src="/icons/logo2.svg"
                   width={30}
                   height={30}
                   alt="menu icon"
@@ -329,7 +329,7 @@ export default function Payments() {
                           style={{ transform: "rotate(270deg)" }}
                         />
                       ) : null}
-                      You have {podcastsRemaining} podcasts remaining for the
+                      You have {podcastsRemaining} images remaining for the
                       month of{" "}
                       {new Date().toLocaleString("default", { month: "long" })}.
                     </p>

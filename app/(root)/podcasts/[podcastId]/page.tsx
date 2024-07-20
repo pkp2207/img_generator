@@ -38,14 +38,14 @@ const PodcastDetails = ({
   if (!isFetching && !podcast)
     return (
       <div className="flex min-h-screen justify-center items-center">
-        <EmptyState title="Podcast not found" />
+        <EmptyState title="Not found" />
       </div>
     );
 
   return (
     <section className="flex w-full flex-col">
       <header className="mt-9 flex items-center justify-between">
-        <h1 className="text-20 font-bold text-white-1">Currenty Playing</h1>
+        <h1 className="text-20 font-bold text-white-1">Currently Playing</h1>
         <figure className="flex gap-3">
           <Image
             src="/icons/headphone.svg"

@@ -30,14 +30,14 @@ const useGeneratePodcast = ({
 
     if(!voiceType) {
       toast({
-        title: "Please select a voice type to generate a podcast",
+        title: "Please select a model type to generate an image",
       })
       return setIsGenerating(false);
     }
 
     if(!voicePrompt) {
       toast({
-        title: "Please provide a prompt to generate podcast",
+        title: "Please provide a prompt to generate image",
       })
       return setIsGenerating(false);
     }
@@ -62,12 +62,12 @@ const useGeneratePodcast = ({
       setAudio(audioUrl!);
       setIsGenerating(false);
       toast({
-        title: "Podcast generated successfully",
+        title: "Image generated successfully",
       })
     } catch (error: any) {
-      console.error('Error generating podcast', error)
+      console.error('Error generating image', error)
       toast({
-        title: "Error creating the podcast",
+        title: "Error creating the image",
         variant: 'destructive',
       })
       setIsGenerating(false);
@@ -85,11 +85,11 @@ const GeneratePodcast = (props: GeneratePodcastProps) => {
     <div>
       <div className="flex flex-col gap-2.5">
         <Label className="text-16 font-bold text-white-1">
-          AI Prompt to generate Podcast
+          AI Prompt to generate Image
         </Label>
         <Textarea
           className="input-class font-light focus-visible:ring-offset-[--accent-color]"
-          placeholder='Input text to generate audio'
+          placeholder='Input text to generate image'
           rows={5}
           value={props.voicePrompt}
           onChange={(e) => props.setVoicePrompt(e.target.value)}

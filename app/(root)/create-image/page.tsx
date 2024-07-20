@@ -37,7 +37,7 @@ import { useRouter } from "next/navigation"
 import { useIsSubscribed } from "@/hooks/useIsSubscribed"
 import { useClerk } from "@clerk/nextjs"
 
-const voiceCategories = ['alloy', 'shimmer', 'nova', 'echo', 'fable', 'onyx'];
+const voiceCategories = ['Anime', 'Bokeh', 'Blur', 'Cyberpunk'];
 
 const formSchema = z.object({
   podcastTitle: z.string().min(2),
@@ -80,12 +80,12 @@ const CreatePodcast = () => {
     try {
       setIsSubmitting(true);
 
-      if(!audioUrl || !imageUrl || !voiceType) {
+      if (!audioUrl || !imageUrl || !voiceType) {
         toast({
-          title: 'Please generate audio and image',
+          title: 'Please generate image',
         })
         setIsSubmitting(false);
-        throw new Error('Please generate audio and image')
+        throw new Error('Please generate image')
       }
 
       const podcast = await createPodcast({
@@ -101,14 +101,14 @@ const CreatePodcast = () => {
         audioStorageId: audioStorageId!,
         imageStorageId: imageStorageId!,
       })
-      toast({ title: 'Podcast created' })
+      toast({ title: 'Image generated' })
       setIsSubmitting(false);
       router.push('/')
-    } catch (error : any) {
+    } catch (error: any) {
       console.error(error.message);
       toast({
         title: 'Error',
-        description: error.message? error.message : "Unknown error",
+        description: error.message ? error.message : "Unknown error",
         variant: 'destructive',
       })
       setIsSubmitting(false);
@@ -117,7 +117,7 @@ const CreatePodcast = () => {
 
   return (
     <section className="mt-10 flex flex-col">
-      <h1 className="text-20 font-bold text-white-1">Create Podcast</h1>
+      <h1 className="text-20 font-bold text-white-1">Generate Image</h1>
 
       <Form {...form}>
         <form
@@ -136,7 +136,7 @@ const CreatePodcast = () => {
                   <FormControl>
                     <Input
                       className="input-class focus-visible:ring-offset-[--accent-color]"
-                      placeholder="The Joe Rogan Podcast"
+                      placeholder="Wellness"
                       {...field}
                     />
                   </FormControl>
@@ -147,7 +147,7 @@ const CreatePodcast = () => {
 
             <div className="flex flex-col gap-2.5">
               <Label className="text-16 font-bold text-white-1">
-                Select AI Voice
+                Select AI Image Model
               </Label>
 
               <Select onValueChange={(value) => setVoiceType(value)}>
@@ -157,7 +157,7 @@ const CreatePodcast = () => {
                   )}
                 >
                   <SelectValue
-                    placeholder="Select AI Voice"
+                    placeholder="AI Model"
                     className="placeholder:text-gray-1 "
                   />
                 </SelectTrigger>
@@ -165,12 +165,12 @@ const CreatePodcast = () => {
                   {voiceCategories.map((category) => (
                     <SelectItem
                       // disable all voices except alloy for non-subscribed users
-                      disabled={ category !== 'alloy' && !isSubscribed}
+                      disabled={category !== 'Anime' && !isSubscribed}
                       key={category}
                       value={category}
                       className="capitalize relative  flex items-center focus:bg-[--accent-color]"
                     >
-                      {!isSubscribed && category !== "alloy" && (
+                      {!isSubscribed && category !== "Anime" && (
                         <span className="absolute left-0 top-0 bottom-0 inline-flex items-center justify-center">
                           <LockKeyhole />
                         </span>
@@ -200,7 +200,7 @@ const CreatePodcast = () => {
                   <FormControl>
                     <Textarea
                       className="input-class focus-visible:ring-offset-[--accent-color]"
-                      placeholder="Write a short podcast description"
+                      placeholder="Write a short image description"
                       {...field}
                     />
                   </FormControl>
@@ -219,6 +219,7 @@ const CreatePodcast = () => {
               setVoicePrompt={setVoicePrompt}
               setAudioDuration={setAudioDuration}
             />
+
 
             <GenerateThumbnail
               setImage={setImageUrl}
@@ -239,7 +240,7 @@ const CreatePodcast = () => {
                     <Loader size={20} className="animate-spin ml-2" />
                   </>
                 ) : (
-                  "Submit & Publish Podcast"
+                  "Publish Image"
                 )}
               </Button>
             </div>

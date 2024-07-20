@@ -98,7 +98,7 @@ const ProfileCard = ({
           />
           <h2 className="text-16 font-semibold text-white-1">
             {podcastData?.listeners} &nbsp;
-            <span className="font-normal text-white-2">monthly listeners</span>
+            <span className="font-normal text-white-2">monthly viewers</span>
           </h2>
         </figure>
         {podcastData?.podcasts.length > 0 && (

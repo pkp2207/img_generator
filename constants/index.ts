@@ -10,9 +10,9 @@ export const sidebarLinks = [
     label: "Discover",
   },
   {
-    imgURL: "/icons/microphone.svg",
-    route: "/create-podcast",
-    label: "Create Podcast",
+    imgURL: "/icons/profile.svg",
+    route: "/create-image",
+    label: "Generate Image",
   },
   {
     imgURL: "/icons/profile.svg",
@@ -29,27 +29,19 @@ export const sidebarLinks = [
 export const voiceDetails = [
   {
     id: 1,
-    name: "alloy",
+    name: "Anime",
   },
   {
     id: 2,
-    name: "echo",
+    name: "Bokeh",
   },
   {
     id: 3,
-    name: "fable",
+    name: "Blur",
   },
   {
     id: 4,
-    name: "onyx",
-  },
-  {
-    id: 5,
-    name: "nova",
-  },
-  {
-    id: 6,
-    name: "shimmer",
+    name: "Cyberpunk",
   },
 ];
 
@@ -74,17 +66,14 @@ export const pricingPlans = [
     buttonClass: "text-white-1 bg-[#ffffff1a] hover:bg-[#ffffff0d] ",
     // Array of features included in the plan.
     features: [
-      "Create upto 5 Podcasts per month",
-      "Unlimited Listening",
-      "Text-to-speech",
-      "Thumbnail upload",
-      "1 AI voice model",
+      "Create upto 500 images per month",
+      "Unlimited Viewing",
+      "2 AI image models",
     ],
     // Array of features not available in the plan.
     unavailableFeatures: [
-      "30 Podcasts per month",
-      "AI Thumbnail generation",
-      "AI voice model selection",
+      "Unlimited Downloading",
+      "Generate more than 500 images",
     ],
   },
   {
@@ -97,15 +86,13 @@ export const pricingPlans = [
     buttonClass:
       "text-black-1 bg-[#ffffff] hover:bg-[#ffffff0d] hover:text-white-1 ",
     features: [
-      "Create upto 30 Podcasts per month",
-      "AI Thumbnail generation",
-      "AI voice model selection",
-      "Up to 6 AI voice models",
-      "Unlimited Listening",
+      "Create upto 3000 images per month",
+      "Up to 6 AI image models",
+      "Unlimited Viewing",
     ],
     unavailableFeatures: [
-      "Unlimited Podcasts per month",
-      "Unlimited AI Thumbnail generation",
+      "Unlimited Images per month",
+      "Unlimited Downloading",
     ],
   },
   {
@@ -117,13 +104,10 @@ export const pricingPlans = [
     cardBgClass: "bg-[#0003] backdrop-blur-3xl",
     buttonClass: "text-white-1 bg-[#ffffff1a] hover:bg-[#ffffff0d] ",
     features: [
-      "Unlimited Podcasts per month",
-      "Unlimited AI Thumbnail generation",
-      "AI voice model selection",
-      "Podcast boost",
-      "Gpt-3.5-turbo-16k model",
-      "Podcast stats and analytics",
-      "Unlimited Listening",
+      "Unlimited Images per month",
+      "AI image model selection",
+      "Image stats and analytics",
+      "Unlimited Viewing and Downloading",
     ],
     // The third plan does not have any unavailable features, hence an empty array.
     unavailableFeatures: [],

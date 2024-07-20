@@ -34,7 +34,7 @@ const MyProfilePage = () => {
         />
       </div>
       <section className="mt-9 flex flex-col gap-5">
-        <h1 className="text-20 font-bold text-white-1">All Podcasts</h1>
+        <h1 className="text-20 font-bold text-white-1">All Images</h1>
         {podcastsData && podcastsData.podcasts.length > 0 ? (
           <div className="podcast_grid">
             {podcastsData?.podcasts
@@ -51,9 +51,9 @@ const MyProfilePage = () => {
           </div>
         ) : (
           <EmptyState
-            title="You have not created any podcasts yet"
-            buttonLink="/create-podcast"
-            buttonText="Create Podcast"
+            title="You have not created any images yet"
+            buttonLink="/create-image"
+            buttonText="Create Image"
           />
         )}
       </section>

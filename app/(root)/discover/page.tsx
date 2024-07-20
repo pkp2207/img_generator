@@ -118,7 +118,7 @@ const Discover = ({ searchParams: { search } }: { searchParams: { search: string
       <div className="relative mt-8 block">
         <Input
           className="input-class py-6 pl-12 focus-visible:ring-offset-[--accent-color]"
-          placeholder="Search for podcasts"
+          placeholder="Search for images"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           onLoad={() => setSearchTerm("")}
@@ -128,7 +128,7 @@ const Discover = ({ searchParams: { search } }: { searchParams: { search: string
 
       <div className="flex flex-col gap-9">
         <h1 className="text-20 font-bold text-white-1">
-          {!searchTerm ? "Discover Trending Podcasts" : `Search results for "${searchTerm}"`}
+          {!searchTerm ? "Discover Trending Images" : `Search results for "${searchTerm}"`}
         </h1>
         {podcastsData ? (
           filteredPodcasts.length > 0 ? (
